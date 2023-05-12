@@ -28,7 +28,7 @@ export default function Create() {
         const newPost={
           id: new Date().getTime(),
           date: form.date,
-          distance: parseFloat(form.distance) 
+          content: parseFloat(form.content) 
         };
 
         // POST на адрес http://localhost:7070/posts body: {form};
@@ -76,11 +76,12 @@ export default function Create() {
           <form onSubmit={handleSubmit} className='list_container'>
             <input type='date' name='date' value={form.date} onChange={handleChange}></input>
             <input type='text' name='content' value={form.distance} onChange={handleChange}></input>
-            <button>ok</button>
-          </form>
-          <button type='submit' >Опубликовать</button>
+            <div>
+
+            <button >Опубликовать</button>
           <NavLink to='/'>X</NavLink>
-          {/* <List items={trains} remove={handleRemove}/> */}
+            </div>
+          </form>
         </div>
       );
     }
