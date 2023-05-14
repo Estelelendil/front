@@ -1,4 +1,4 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 
 import React, { useEffect, useState } from 'react';
 
@@ -6,6 +6,8 @@ export default function Edit() {
 // const {userId}= useParams();
 const { id } = useParams();
 console.log('id', id)
+const navigate=useNavigate()
+const goBack=()=>navigate(`/posts/edit/${id}`)
 // console.log('userId', userId)
     //get element by id from 'http://localhost:7070/{postId}        
     // const [post, setPost] = useState({});
@@ -59,6 +61,7 @@ console.log('id', id)
       })
       .then(response => response.json())
       .then(data => {
+        goBack()
           console.log('Success:', data);
       })}
     

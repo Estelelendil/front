@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export default function Card({id}) {
     //get element by id from 'http://localhost:7070/{postId}    
@@ -9,6 +9,8 @@ export default function Card({id}) {
       date: 0,
       content: '',
     });
+    const navigate=useNavigate()
+    const goBack=()=>navigate('/')
 //fetch post from api by id 
     useEffect(() => {   
         fetch(`http://localhost:7070/${id}`)
@@ -21,7 +23,9 @@ export default function Card({id}) {
             method: 'DELETE',
         })
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => {console.log(data)
+          goBack()
+        });
     }
     console.log(post);
   

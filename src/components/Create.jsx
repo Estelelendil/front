@@ -1,6 +1,6 @@
 
     import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export default function Create() {
     // saves the post and displays the view card with the updated data. POST to http://localhost:7070/posts body: {"id": not 0, "content": "What is entered in the input field"}
@@ -12,6 +12,8 @@ export default function Create() {
     // }
     
     //   const [trains, setTrains]=useState([])
+    const navigate=useNavigate()
+    const goBack=()=>navigate('/')
       const [form, setForm]=useState({
           id: '',
           date: 0,
@@ -42,6 +44,7 @@ export default function Create() {
         })
         .then(response => response.json())
         .then(data => {
+          goBack()
             console.log('Success:', data);
         })
     }
