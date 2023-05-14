@@ -61,7 +61,6 @@ const goBack=()=>navigate(`/posts/edit/${id}`)
       })
       .then(response => response.json())
       .then(data => {
-        goBack()
           console.log('Success:', data);
       })}
     
@@ -74,7 +73,7 @@ const goBack=()=>navigate(`/posts/edit/${id}`)
             <input type='date' name='date' value={form.date} onChange={handleChange}></input>
             <input type='text' name='content' value={form.content} onChange={handleChange}></input>
             <div>
-            <button type='submit'>Сохранить</button>
+            <button onClick={goBack} type='submit'>Сохранить</button>
             <NavLink to='/'>X</NavLink>
             </div>
           </form>

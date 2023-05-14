@@ -44,7 +44,6 @@ export default function Create() {
         })
         .then(response => response.json())
         .then(data => {
-          goBack()
             console.log('Success:', data);
         })
     }
@@ -81,7 +80,7 @@ export default function Create() {
             <input type='text' name='content' value={form.distance} onChange={handleChange}></input>
             <div>
 
-            <button >Опубликовать</button>
+            <button onClick={goBack} >Опубликовать</button>
           <NavLink to='/'>X</NavLink>
             </div>
           </form>

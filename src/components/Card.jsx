@@ -23,9 +23,8 @@ export default function Card({id}) {
             method: 'DELETE',
         })
         .then(res => res.json())
-        .then(data => {console.log(data)
-          goBack()
-        });
+        .then(data => console.log(data)
+        );
     }
     console.log(post);
   
@@ -39,7 +38,10 @@ export default function Card({id}) {
                     <h2>{post.content}</h2>
                     <p>{post.created}</p>
                     <div className='flex gap-[15px]'>
-                    <NavLink to='/' onClick={() => deletePost(id)} className='bg-red'>Удалить</NavLink>
+                    <NavLink to='/' onClick={() => {
+                      deletePost(id)
+                      goBack()
+                      }} className='bg-red'>Удалить</NavLink>
 
                     <NavLink to={`/posts/edit/${id}`} onClick={()=> console.log('edit')}>Рeдактировать</NavLink>
                     </div>
